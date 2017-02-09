@@ -9,7 +9,7 @@ int main() {
     int penny = 1;
     int includeHalfDollars;
     int prioritize;
-    cout << "Which Type of Coin would you like to exclude (0 for Half-Dollars. 1 for Quarters and Half Dollars. 2 for Dimes, Quarters, and Half Dollars. 3 for Nickels, Dimes, Quarters, and Half Dollars. 4 for Just Pennies.) ";
+    cout << "Which Type of Coin would you like to use first? (0 for Half-Dollars. 1 for Quarters. 2 for Dimes. 3 for Nickels. 4 for Pennies.) ";
     cin >> prioritize;
     cout << "How much change do you have? (As a Whole Number) ";
     cin >> amountOfChange;
@@ -50,6 +50,7 @@ int main() {
         cout << amountOfChange/1 << " Pennies" <<endl;
     }
     totalAmount = (totalAmount * .891);
-    cout << "Total Earned: $" << static_cast<double>(totalAmount) << endl;
+    
+    cout << "Total Earned: " << static_cast<double>(totalAmount) << "¢" << endl;
     
 }                                                               //ends int main() {
