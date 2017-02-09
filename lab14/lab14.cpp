@@ -1,3 +1,7 @@
+//Riley Slater
+//February 9, 2017
+//This Program asks user if they would like to use a certain coin, by inputting a number corresponding to different coins. 
+//Then it asks how much change user has as a whole number. Converts that into minimum amounts of coins used. Then deducts a 10.9% fee for the service.
 #include <iostream>
  
 using namespace std;
