@@ -1,3 +1,9 @@
+//Riley Slater
+//March 2, 2017
+//Lab 2.4
+//This Program in this Sequence does: Takes two user inputed numbers, swaps the two values, finds the smallest value and the largest value, assigns those values to new variables lowValue and highValue
+//takes those values and generates a random number between them, takse the random number and puts it through Pounds to Kilo's Function, takes that number and puts it through Kilos to Pounds function
+//then puts the randomNumber value and the final pounds value and checks if they are equivalent, if they are it tells the user, if it isnt then it shows error.
 #include <iostream>
 #include <cmath>
 using namespace std;
