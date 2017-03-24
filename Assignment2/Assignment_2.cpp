@@ -84,6 +84,7 @@ int main() {
     DistanceConverter measurement6;
     DistanceConverter measurement7(100);
     DistanceConverter measurement8;
+    DistanceConverter measurement9;
     
     measurement1.setMiles(1);                                           //Sets Miles to 1
     cout << measurement1.getFeet() << " feet" << endl << endl;          //Gets Feet Measurement
@@ -124,6 +125,11 @@ int main() {
     cout << measurement8.getMiles() << " miles" << endl << endl;        //Gets Miles Measurement
     cout << "All Units: "; 
     measurement8.PrintFunction();                                       //Prints rest of Distance Types
+    
+    measurement9.setFeet(247);
+    cout << measurement9.getMeters() << " inches" << endl << endl;
+    cout << "All Units: ";
+    measurement9.PrintFunction();
     
     return 0;
 }
