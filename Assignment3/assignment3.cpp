@@ -1,3 +1,7 @@
+//Riley Slater
+//CSCI 20
+//April 7, 2017
+//Program Plays a game of Rock, Paper, Scissors, Lizard, Spock. The user plays against a computer controlled AI.
 #include <iostream>
 #include <string>
 using namespace std;
