@@ -38,6 +38,9 @@ int InventorySubtraction(int productAmount, int amountBought, string typeOfProdu
 
 int AddToCost(int amountBought, string typeOfProduct) {     //FUNCTION THAT ADDS COST FOR EACH ITEM THE USER BUYS, TAKES INPUT FROM THE FUNCTION CALL OF THE AMOUNT BOUGHT AND WHAT PRODUCT IT WAS
     int cost = 0;
+    if (NEW_VALUE_OF_BOUGHT != -1) {
+        amountBought = NEW_VALUE_OF_BOUGHT;
+    }
     if (typeOfProduct == "Road Bike") {
         cost = ROAD_BIKE_COST * amountBought;
     }
