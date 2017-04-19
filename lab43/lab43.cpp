@@ -1,21 +1,25 @@
+//Riley Slater
+//Lab 4.3
+//April 18, 2017
+//This program is a grocery store that asks the user if they want to buy a certain amount of items and what item they want to buy, then it adds it to their total and when they checkout it completes their total.
 #include <iostream>
 #include <string>
 using namespace std;
 
-int inventory[30] = {8,4,7,8,5,7,9,6,8,8,6,6,5,6,8,5,6,9,9,3,6,7,3,2,8,9,10,15,6,7};
-int ARRAY_SIZE = 20;
-int TOTAL_WANTED = 0;
-class ShoppingTools { 
+int inventory[30] = {8,4,7,8,5,7,9,6,8,8,6,6,5,6,8,5,6,9,9,3,6,7,3,2,8,9,10,15,6,7}; //Global Inventory Class for the amount of inventory for each item
+int ARRAY_SIZE = 20; //Global Array Size Declaration
+int TOTAL_WANTED = 0; //Total wanted to store how much the user wants of an item, this way the item can be changed from within the class if the item isn't available in the amount wanted
+class ShoppingTools {       //CLASS SHOPPING TOOLS, CONFIGURES ALL PROPERTIES ABOUT THE USER'S SHOPPING CART
     private:
         int objectID_;
-        int price_;
+        int price_;                     //PRIVATE VARIABLES
         int currentInventory_;
         int amountBought_;
     public:
         ShoppingTools();
         void setObjectID(int ID);
         void setPrice(int price);
-        void setAmountBought(int amountBought);
+        void setAmountBought(int amountBought);                 //MUTATORS AND ACCESSORS
         void setCurrentInventory(int itemID);
         int getPrice();
         int getAmountBought();
@@ -53,8 +57,8 @@ int ShoppingTools::getAmountBought() {
 int main() {
     string itemInput = "";
     int itemID = 0;
-    ShoppingTools shoppingCart[ARRAY_SIZE];
-    int price[30] = {1,1,1,1,1,1,4,4,4,4,4,4,3,3,3,3,3,3,4,4,4,4,4,4,10,10,10,10,10,10};
+    ShoppingTools shoppingCart[ARRAY_SIZE];     //Declares array of objects
+    int price[30] = {1,1,1,1,1,1,4,4,4,4,4,4,3,3,3,3,3,3,4,4,4,4,4,4,10,10,10,10,10,10};        //Price array for each item
     
     cout << "Welcome to Grocery Mart" << endl;
     cout << "Here is a list of all our items" << endl;
@@ -63,31 +67,31 @@ int main() {
     cout << "|-------------|" << "-------------|" << "--------------|" << "--------------|" << "----------------------|" << endl;
     cout << "|~DragonFruit~|" << "~Whole Grain~|" << "~~~~Sprite~~~~|" << "~~PepperJack~~|" << "~~~~~Cheese Pizza~~~~~|" << endl;
     cout << "|~~~Bananas~~~|" << "~~~~Wheat~~~~|" << "~~~Lemonade~~~|" << "~~~American~~~|" << "~~~~~~Tomato Pie~~~~~~|" << endl;
-    cout << "|~~~Oranges~~~|" << "~~Sourdough~~|" << "~~~~Coffee~~~~|" << "~~~~~Feta~~~~~|" << "~~~~Hawaiian Pizza~~~~|" << endl;
+    cout << "|~~~Oranges~~~|" << "~~Sourdough~~|" << "~~~~Coffee~~~~|" << "~~~~~Feta~~~~~|" << "~~~~Hawaiian Pizza~~~~|" << endl;           //SHOPPING INTERFACE, YES IT WAS HARD TO MAKE THIS
     cout << "|~~~Peaches~~~|" << "~~~~White~~~~|" << "~~~Iced Tea~~~|" << "~~Mozzarella~~|" << "~~~~~Veggie Pizza~~~~~|" << endl;
     cout << "|~~Pineapple~~|" << "~~~~Bagel~~~~|" << "~~~RootBeer~~~|" << "~~~~Cotija~~~~|" << "~~~~Grandma Slices~~~~|" << endl;
     cout << "|~~~Mangoes~~~|" << "~~Baguettes~~|" << "~Mountain Dew~|" << "~~~~~Goat~~~~~|" << "~~~~~~Pizza Cone~~~~~~|" << endl;
     cout << " ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾ " << endl;
     
     int i = 0;
-    for (i = 0; true; i++) {
+    for (i = 0; true; i++) {        //For loop that only executes if the user doesn't type checkout (break statement in the loop)
         TOTAL_WANTED = 0;
         cout << endl << "Type checkout if you would like to go to your Checkout!" << endl;
         if (i == 0) {
             cout << "What would you like to buy (Make Sure The Item is Entered As Shown Above or this will continue to pop up): ";
         }
         getline(cin, itemInput);
-        
+        //WHILE LOOP BELOW CHECKS TO MAKE SURE THE USER INPUTTED A PROPER NAME
         while (itemInput != "checkout" && itemInput != "Checkout" && itemInput != "DragonFruit" && itemInput != "Bananas" && itemInput != "Oranges" && itemInput != "Peaches" && itemInput != "Pineapple" && itemInput != "Mangoes" && itemInput != "Whole Grain" && itemInput != "Wheat" && itemInput != "Sourdough" && itemInput != "Bagel" && itemInput != "White" && itemInput != "Baguette" && itemInput != "Sprite" && itemInput != "Lemonade" && itemInput != "Coffee" && itemInput != "Iced Tea" && itemInput != "RootBeer" && itemInput != "Mountain Dew" && itemInput != "PepperJack" && itemInput != "American" && itemInput != "Feta" && itemInput != "Mozzarella" && itemInput != "Cotija" && itemInput != "Goat" && itemInput != "Cheese Pizza" && itemInput != "Tomato Pie" && itemInput != "Hawaiian Pizza" && itemInput != "Veggie Pizza" && itemInput != "Grandma Slices" && itemInput != "Pizza Cone") {
             cout << "What would you like to buy (Make Sure The Item is Entered As Shown Above or this will continue to pop up): ";
             getline(cin, itemInput);
         }
         if (itemInput == "checkout" || itemInput == "Checkout") {
-            break;
+            break;                                                      //BREAKS OUT OF LOOP IF USER TYPES CHECKOUT
         }
         cout << "How Many Would You Like: ";
-        cin >> TOTAL_WANTED;
-        if (itemInput == "DragonFruit") {
+        cin >> TOTAL_WANTED;                        
+        if (itemInput == "DragonFruit") {                   //THESE IF ELSE STATEMENTS TRANSLATE THE ITEM BOUGHT INTO AN ID SO IT CAN BE USED EASIER
             itemID = 1;
         }
         else if (itemInput == "Bananas") {
@@ -177,9 +181,9 @@ int main() {
         else if (itemInput == "Pizza Cone") {
             itemID = 30;
         }
-        shoppingCart[i].setObjectID(itemID);
-        shoppingCart[i].setAmountBought(TOTAL_WANTED);
-        if (itemID == 1) {
+        shoppingCart[i].setObjectID(itemID);                //SETS THE OBJECT ID IN INDEX I OF SHOPPINGCART
+        shoppingCart[i].setAmountBought(TOTAL_WANTED);      //SETS AMOUNT BOUGHT IN THE INDEX I OF SHOPPINGCART
+        if (itemID == 1) {                              //THESE IF ELSE STATEMENTS CHECK WHAT ID OF ITEM THE USER WANTED AND THEN SETS THE PRICE AND INVENTORY AMOUNT BASED ON THE TWO PARALLEL ARRAYS DECLARED EARLIER
             shoppingCart[i].setPrice(price[0]);
             shoppingCart[i].setCurrentInventory(inventory[0]);
         }
@@ -305,7 +309,7 @@ int main() {
     int amount = 0;
     for (int j = 0; j < i; j++) {
         cost = shoppingCart[j].getPrice();
-        amount = shoppingCart[j].getAmountBought();
+        amount = shoppingCart[j].getAmountBought();                 //THIS SECTION GETS THE TOTAL OF ALL THE ITEMS THE USER BOUGHT
         totalCost = totalCost + (cost * amount);
     }
     cout << endl << endl << "Your Total is: " << totalCost << endl;
