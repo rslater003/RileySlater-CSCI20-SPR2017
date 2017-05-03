@@ -58,7 +58,7 @@ int main() {
             semesterGPA1 = semesterGPA1 + (1 * units1[i]);   
         }
         else if (grade1[i] == "F") {
-            semesterGPA1 = semesterGPA1 + (0 * units1[i]);
+            semesterGPA1 = semesterGPA + (0 * units1[i]);
         }
     }
     
