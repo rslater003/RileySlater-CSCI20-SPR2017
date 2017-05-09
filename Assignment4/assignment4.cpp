@@ -63,8 +63,8 @@ int main() {
     ifstream fin;   //Declares the ifstream object fin
     ofstream fout;  //Declares the ofstream object fout
     
-    /*cout << "Please enter a filename that you want a Concordance of (Don't forget the file extension): ";
-    cin >> fileName;*/ //INCLUDE THIS IF YOU WANT TO INPUT YOUR OWN FILE NAME, MAKE SURE TO CHANGE THE PARAMETERS IN fin.open WHERE IT SAYS little_miss_muffet.txt TO fileName
+    cout << "Please enter a filename that you want a Concordance of (Don't forget the file extension): ";
+    cin >> fileName;
     
     string StopWords;
     fin.open("english.stop.txt");       //OPENS THE STOP WORDS FILE
@@ -83,7 +83,7 @@ int main() {
       Indexing.append(line1);       //APPENDS THE LINE OF TEXT TO A STRING CALLED Indexing
     }
     fin.close();        //CLOSES THE FIN FILE
-    fin.open("little_miss_muffet.txt");     //OPENS THE FILE THAT THE USER WANTS A CONCORDANCE OF
+    fin.open(fileName);     //OPENS THE FILE THAT THE USER WANTS A CONCORDANCE OF
     fout.open("lowerCaseFile.txt");     //OPENS THE OUTPUTS FILE
     for (int g = 0; !fin.eof(); g++) {      //WHILE NOT THE END OF THE FILE, INCREMENTS G
         fin >> tempWord;                    //GETS THE FIRST WORD AND SETS IT TO tempWord
